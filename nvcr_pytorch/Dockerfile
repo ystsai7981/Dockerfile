@@ -5,7 +5,7 @@ rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /home/ystsai && \
 groupadd -g 1000 ystsai && \
 useradd -d /home/ystsai -u 1000 -g 1000 -G sudo ystsai
-RUN echo "ystsai:wind7980" | chpasswd 
+RUN echo "ystsai:\$1\$4jqlyaXh\$qNbImBVBG5U97ndP9P.Bs/" | chpasswd -e
 WORKDIR /home/ystsai
 
 RUN jupyter lab --generate-config
