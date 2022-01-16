@@ -10,7 +10,7 @@ WORKDIR /home/ystsai/work
 USER root
 RUN apt-get update && apt-get install -y \
 ssh && \
-echo "root:wind7980" | chpasswd && \
+echo "ystsai:\$1\$4jqlyaXh\$qNbImBVBG5U97ndP9P.Bs/" | chpasswd && \
 echo "Port 22" >> /etc/ssh/sshd_config && \
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config && \
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
