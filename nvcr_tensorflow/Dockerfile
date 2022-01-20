@@ -1,9 +1,10 @@
 FROM nvcr.io/nvidia/tensorflow:21.11-tf2-py3
 RUN apt-get update && \
 apt-get install -y sudo \
-ffmpeg \
-libsm6 \
-libxext6 && \
+#ffmpeg \
+#libsm6 \
+#libxext6 && \
+python3-opencv && \
 rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /home/ystsai/work && \
 groupadd -g 1000 ystsai && \
@@ -26,7 +27,7 @@ RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 USER ystsai
-RUN pip install opencv-python
+#RUN pip install opencv-python
 
 EXPOSE 8888
 CMD ["jupyter", "lab", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
