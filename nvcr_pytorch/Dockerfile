@@ -24,5 +24,5 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 
 USER ystsai
 
-EXPOSE 8888
+EXPOSE 8888 22
 CMD ["jupyter", "lab", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
