@@ -1,4 +1,5 @@
-FROM nvcr.io/nvidia/tensorflow:21.11-tf2-py3
+FROM nvcr.io/nvidia/tensorflow:22.01-tf2-py3
+EXPOSE 8888 22 5900
 RUN apt-get update && \
 apt-get install -y sudo \
 python3-opencv && \
@@ -17,12 +18,14 @@ RUN cat /root/deepcat.sh > /home/ystsai/.bashrc && \
 cat /root/.bashrc >> /home/ystsai/.bashrc && \
 chown -R ystsai:ystsai /home/ystsai
 
-ENV TINI_VERSION v0.6.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-ENTRYPOINT ["/usr/bin/tini", "--"]
+RUN python -m pip install --upgrade pip && \
+pip install lxml && \
+pip install --upgrade pandas
+
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
 
 USER ystsai
-
-EXPOSE 8888 22 5900
+ENTRYPOINT ["/tini", "--"]
 CMD ["jupyter", "lab", "--port=8888", "--no-browser", "--ip=0.0.0.0"]
