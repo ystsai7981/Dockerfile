@@ -16,7 +16,7 @@ ADD deepcat.sh /root
 RUN cat /root/deepcat.sh > /home/ystsai/.bashrc && \
 cat /root/.bashrc >> /home/ystsai/.bashrc && \
 chown -R ystsai:ystsai /home/ystsai && \
-chmod -R 777 /home/ystsai
+chmod -R ystsai:ystsai /opt/conda
 
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
