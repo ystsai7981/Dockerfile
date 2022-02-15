@@ -15,8 +15,7 @@ cp -r /root/.jupyter /home/ystsai
 ADD deepcat.sh /root
 RUN cat /root/deepcat.sh > /home/ystsai/.bashrc && \
 cat /root/.bashrc >> /home/ystsai/.bashrc && \
-chown -R ystsai:ystsai /home/ystsai && \
-chmod -R ystsai:ystsai /opt/conda
+chown -R ystsai:ystsai /home/ystsai
 
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
