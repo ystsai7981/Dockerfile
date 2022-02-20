@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  tensorflow:
+    image: ystsai7981/tensorflow:latest
+    volumes:
+      - ~/tensorflow:/home/ystsai/work
+    ports:
+      - "8897:8888"
+      - "8898:6006"
+    container_name: tf-test
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: all
+              driver: nvidia

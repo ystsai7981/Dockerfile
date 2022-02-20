@@ -1,5 +1,5 @@
 FROM nvcr.io/nvidia/tensorflow:22.01-tf2-py3
-EXPOSE 8888 22 5900
+EXPOSE 8888 22 5900 6006
 RUN apt-get update && \
 apt-get install -y sudo \
 python3-opencv && \
