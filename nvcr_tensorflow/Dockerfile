@@ -13,13 +13,14 @@ echo "ystsai:\$1\$4jqlyaXh\$qNbImBVBG5U97ndP9P.Bs/" | chpasswd -e
 WORKDIR /home/ystsai/work
 
 RUN python -m pip install --upgrade pip && \
-pip install lxml && \
+pip install lxml jupyterlab-lsp && \
 pip install --upgrade jupyterlab pandas scikit-learn
 
 ADD deepcat.sh /root
 RUN cat /root/deepcat.sh > /home/ystsai/.bashrc && \
 cat /root/.bashrc >> /home/ystsai/.bashrc && \
-chown -R ystsai:ystsai /home/ystsai
+chown -R ystsai:ystsai /home/ystsai && \
+chown -R ystsai:ystsai /usr/local/share/jupyter
 
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
