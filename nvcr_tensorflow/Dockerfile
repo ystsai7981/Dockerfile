@@ -20,7 +20,8 @@ chown -R ystsai:ystsai /home/ystsai
 
 RUN python -m pip install --upgrade pip && \
 pip install lxml && \
-pip install --upgrade pandas
+pip install --upgrade pandas && \
+pip install --upgrade scikit-learn
 
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini

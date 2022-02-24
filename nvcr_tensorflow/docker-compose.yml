@@ -6,9 +6,9 @@ services:
     volumes:
       - ~/tensorflow:/home/ystsai/work
     ports:
-      - "8897:8888"
-      - "8898:6006"
-    container_name: tf-test
+      - "8895:8888"
+      - "6006:6006"
+    container_name: tf
     deploy:
       resources:
         reservations:
