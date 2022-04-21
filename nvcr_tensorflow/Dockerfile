@@ -14,7 +14,10 @@ WORKDIR /home/ystsai/work
 
 RUN python -m pip install --upgrade pip && \
 pip install lxml jupyterlab-lsp && \
-pip install --upgrade jupyterlab pandas scikit-learn
+pip install 'python-lsp-server[all]' && \
+pip install --upgrade jupyterlab pandas scikit-learn tensorboard tensorflow-addons && \
+pip install -q "tqdm>=4.36.1" && \
+pip install ipywidgets
 
 ADD deepcat.sh /root
 RUN cat /root/deepcat.sh > /home/ystsai/.bashrc && \
