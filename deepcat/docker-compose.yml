@@ -1,0 +1,71 @@
+version: "3.9"
+
+services:
+  deepcat1:
+    image: ystsai/deepcat:latest
+    build:
+      context: ./
+    volumes:
+      - ~/HD/deepcat1:/workspace
+    ports:
+      - "8889:8888"
+    ipc: host
+    container_name: deepcat1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: all
+              driver: nvidia
+  deepcat2:
+    image: ystsai/deepcat:latest
+    build:
+      context: ./
+    volumes:
+      - ~/HD/deepcat2:/workspace
+    ports:
+      - "8890:8888"
+    ipc: host
+    container_name: deepcat2
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: all
+              driver: nvidia
+  deepcat3:
+    image: ystsai/deepcat:latest
+    build:
+      context: ./
+    volumes:
+      - ~/HD/deepcat3:/workspace
+    ports:
+      - "8891:8888"
+    ipc: host
+    container_name: deepcat3
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: all
+              driver: nvidia
+  deepcat4:
+    image: ystsai/deepcat:latest
+    build:
+      context: ./
+    volumes:
+      - ~/HD/deepcat4:/workspace
+    ports:
+      - "8892:8888"
+    ipc: host
+    container_name: deepcat4
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: all
+              driver: nvidia

@@ -4,7 +4,7 @@ services:
   tensorflow:
     image: ystsai7981/tensorflow:latest
     volumes:
-      - ~/tensorflow:/home/ystsai/work
+      - ~/work:/home/ystsai/work
     ports:
       - "8895:8888"
       - "6006:6006"
